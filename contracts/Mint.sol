@@ -35,4 +35,10 @@ contract MintableToken is ERC20 {
     function setMintPrice(uint256 newPrice) external onlyOwner {
         mintPrice = newPrice;
     }
+
+    function transferOwnership(address newOwner) external onlyOwner {
+    require(newOwner != address(0), "New owner is the zero address");
+    owner = newOwner;
+}
+
 }
