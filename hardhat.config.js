@@ -1,19 +1,20 @@
 require("@nomicfoundation/hardhat-toolbox");
-import { config as dotEnvConfig } from "dotenv";
-dotEnvConfig();
+require("@nomicfoundation/hardhat-ethers");
+require("hardhat-deploy");
+require("dotenv").config();
 
-const API_URL = process.env.API_URL
-const PRIVATE_KEY = process.env.PRIVATE_KEY
-
-/** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.27",
-  defaultNetwork: "sepolia",
+  solidity: "0.8.20",
   networks: {
-    hardhat: {},
-    volta: {
-      url: API_URL,
-      accounts: [`0x${PRIVATE_KEY}`],
-    }
+    localhost: {},
+    sepolia: {
+      url: process.env.API_URL, // Alchemy or Infura URL
+      accounts: [process.env.PRIVATE_KEY], // Private key of your wallet
+    },
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0, // First account in the wallet list
+    },
   },
 };
