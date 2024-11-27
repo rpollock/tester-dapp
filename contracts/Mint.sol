@@ -37,8 +37,8 @@ contract MintableToken is ERC20 {
     }
 
     function transferOwnership(address newOwner) external onlyOwner {
-    require(newOwner != address(0), "New owner is the zero address");
-    owner = newOwner;
-}
+        require(newOwner != address(0), "New owner is the zero address");
+        owner = newOwner;
+    }
 
 }

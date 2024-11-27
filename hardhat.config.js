@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require('@nomicfoundation/hardhat-ignition-ethers');
 require("@nomicfoundation/hardhat-ethers");
 require("hardhat-deploy");
 require("dotenv").config();
